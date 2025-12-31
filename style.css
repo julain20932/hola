@@ -1,0 +1,70 @@
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:black;
+    font-family: Arial, sans-serif;
+}
+
+/* ANIMACIÓN */
+@keyframes latido{
+    0%   { transform: rotate(45deg) scale(1); }
+    50%  { transform: rotate(45deg) scale(1.08); }
+    100% { transform: rotate(45deg) scale(1); }
+}
+
+.corazon{
+    width:280px;
+    height:280px;
+    background:#ff4d6d;
+    position:relative;
+    transform:rotate(45deg);
+    animation: latido 1.3s infinite;
+}
+
+/* círculos del corazón */
+.corazon::before,
+.corazon::after{
+    content:"";
+    width:280px;
+    height:280px;
+    background:#ff4d6d;
+    position:absolute;
+    border-radius:50%;
+    z-index:1;   /* DETRÁS del texto */
+}
+
+.corazon::before{
+    top:-140px;
+    left:0;
+}
+
+.corazon::after{
+    left:-140px;
+    top:0;
+}
+
+/* TEXTO */
+.mensaje{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(-45deg);
+    width:200px;
+    text-align:center;
+    color:white;
+    z-index:2;   /* ENCIMA del corazón */
+}
+
+.mensaje h1{
+    font-size:16px;
+    margin:0 0 8px;
+}
+
+.mensaje p{
+    font-size:13px;
+    margin:6px 0;
+    line-height:1.4;
+}
